@@ -70,4 +70,4 @@ Estes itens serão transformados em **Cards de Desenvolvimento** no GitHub Proje
 4.  Desenho dos Mockups de interface para o módulo de busca avançada.
 
 ---
-*Projeto acadêmico para a disciplina de Estrutura de Software.*
+*Projeto acadêmico para a disciplina de Estrutura de Software da 2ª turma do curso de Big Data para Indústria - FATEC São Carlos.*
