@@ -1,0 +1,2 @@
+# MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios
+O MegaloData é um projeto de sistema de catálogo e identificação biológica especializado em tubarões e raias. O objetivo principal é fornecer uma estrutura de dados robusta para que pesquisadores possam identificar espécies através de características morfológicas, genéticas e de habitat. Este repositório documenta a fase de planejamento do software
