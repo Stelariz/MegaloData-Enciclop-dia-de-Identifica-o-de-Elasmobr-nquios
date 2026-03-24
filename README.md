@@ -61,6 +61,61 @@ Como o MegaloData lida com dados científicos, a precisão é crítica. O plano 
 
 ---
 
+## 🎨 Protótipos da Interface (Mockups)
+
+Nesta fase de planejamento, a interface do **MegaloData** foi desenhada para atender a dois públicos: o pesquisador científico (colaborador) e o entusiasta marinho (cidadão cientista). Todas as telas seguem um padrão visual de *blueprint* técnico para reforçar a natureza acadêmica do projeto. As imagens deste projeto foram geradas por inteligência artificial, para ilustrar o escopo e a estrutura da interface, podendo conter inconsistências ou erros gráficos.
+
+---
+
+### 🏠 1. Homepage (Página Inicial)
+A porta de entrada do sistema. Oferece uma visão clara das duas principais frentes do projeto: a exploração pública de dados e o portal restrito para pesquisadores. O cabeçalho padronizado permite navegação rápida entre as seções.
+
+![Homepage](./img/Homepage.jpg)
+
+---
+
+### 🔍 2. Catálogo e Filtros (Encontrar uma Espécie)
+Esta tela permite a busca avançada no banco de dados. O usuário pode filtrar por **Morfologia** (guelras, dentes, dentição dermal), **Habitat** e **Status de Conservação**. Inclui uma barra de pesquisa para busca direta por nomes científicos ou populares.
+
+![Encontre uma Espécie](./img/Especies.jpg)
+
+---
+
+### 📖 3. Detalhes da Espécie
+Exibe a ficha técnica completa de um elasmobrânquio após a seleção no catálogo. Apresenta os dados normalizados do banco: taxonomia detalhada, medidas físicas e um mapa de distribuição global (relação N:N).
+
+![Detalhes da Espécie](./img/DetalhesEspecie.jpg)
+
+---
+
+### 🗺️ 4. Distribuição Global (Mapa Interativo)
+Uma visualização espacial das espécies. Ao interagir com o mapa, o usuário visualiza as espécies mais comuns em cada região oceânica, facilitando o entendimento de habitats e zonas de ocorrência.
+
+![Mapa](./img/Mapa.jpg)
+
+---
+
+### 🧪 5. Cidadão Cientista (Enviar Avistamento)
+Tela dedicada ao público geral. Permite que qualquer pessoa contribua para o banco de dados enviando fotos, vídeos e localizações de avistamentos reais, promovendo a coleta de dados de forma colaborativa e aberta.
+
+![Cidadão Cientista](./img/CidadaoCientista.jpg)
+
+---
+
+### 🔐 6. Login / Cadastrar Colaborador
+Portal de autenticação restrito para especialistas. Garante que apenas usuários credenciados (com código de credencial verificado) possam editar ou inserir dados científicos sensíveis, mantendo a integridade do sistema.
+
+![Login](./img/LoginCadastrarColaborador.jpg)
+
+---
+
+### ✍️ 7. Submissão de Dados Colaborativos
+Interface exclusiva do colaborador autenticado. É aqui que ocorre a alimentação técnica do banco de dados, exigindo o upload de evidências e documentação científica para cada novo registro de espécie ou alteração taxonômica.
+
+![Portal do Colaborador](./img/PortalColaborador.jpg)
+
+---
+
 ## 🚀 Próximos Passos (Backlog)
 
 Estes itens serão transformados em **Cards de Desenvolvimento** no GitHub Projects:
@@ -70,4 +125,5 @@ Estes itens serão transformados em **Cards de Desenvolvimento** no GitHub Proje
 4.  Desenho dos Mockups de interface para o módulo de busca avançada.
 
 ---
+
 *Projeto acadêmico para a disciplina de Estrutura de Software da 2ª turma do curso de Big Data para Indústria - FATEC São Carlos.*
