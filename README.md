@@ -21,24 +21,6 @@ Ao estruturar chaves de busca baseadas em **Morfologia** (dentes, nadadeiras, fe
 
 ---
 
-## 🏗️ Estrutura do Sistema
-
-O sistema foi desenhado seguindo uma arquitetura multicamadas, focando na integridade referencial dos dados taxonômicos.
-
-### 📊 Modelagem de Dados (MER)
-A base do projeto reside em um banco de dados relacional (SQL) para garantir que a hierarquia biológica seja respeitada:
-* **Reinos/Ordens/Famílias:** Tabelas com relacionamentos `1:N`.
-* **Espécies:** Entidade central com chaves estrangeiras para tabelas de morfologia.
-* **Habitats:** Relacionamento `N:N` com espécies (uma espécie pode habitar vários oceanos).
-
-### 🛠️ Tech Stack Planejada
-* **Documentação:** Markdown / Mermaid.js (Diagramas).
-* **Banco de Dados:** MySQL ou PostgreSQL.
-* **Gestão de Projeto:** Kanban via GitHub Projects.
-* **Qualidade (QA):** Cypress para testes de API e validação de schema.
-
----
-
 ## 📋 Requisitos do Projeto
 
 ### Funcionais (RF)
@@ -49,15 +31,6 @@ A base do projeto reside em um banco de dados relacional (SQL) para garantir que
 ### Não-Funcionais (RNF)
 - [ ] **RNF01:** A integridade referencial deve ser mantida via Foreign Keys (FK).
 - [ ] **RNF02:** O sistema deve responder a consultas complexas de cruzamento de dados em menos de 200ms.
-
----
-
-## 🧪 Estratégia de Qualidade (QA)
-
-Como o MegaloData lida com dados científicos, a precisão é crítica. O plano de testes foca em:
-1.  **Data Integrity Testing:** Scripts SQL para garantir que não existam "espécies órfãs" sem família definida.
-2.  **API Validation:** Garantir que os inputs de dados (JSON) sigam estritamente o modelo de dados definido.
-3.  **Boundary Testing:** Validar se os limites de habitat (profundidade, temperatura) aceitam apenas valores realistas.
 
 ---
 
@@ -113,6 +86,102 @@ Portal de autenticação restrito para especialistas. Garante que apenas usuári
 Interface exclusiva do colaborador autenticado. É aqui que ocorre a alimentação técnica do banco de dados, exigindo o upload de evidências e documentação científica para cada novo registro de espécie ou alteração taxonômica.
 
 ![Portal do Colaborador](./img/PortalColaborador.jpg)
+
+---
+## 📊 Modelagem do Sistema (Diagramas UML)
+
+Nesta seção, detalhamos o comportamento e a estrutura lógica do **MegaloData** através de diagramas padrão UML.
+
+> **Nota:** As interfaces e fluxos representados abaixo foram planejados para ilustrar o escopo do projeto. Imagens e conceitos visuais deste repositório foram gerados por inteligência artificial e podem conter inconsistências gráficas.
+
+---
+
+### 1. Diagrama de Casos de Uso (Use Case)
+Este diagrama define as interações entre os diferentes atores (Cidadão, Colaborador e Sistema) e as funcionalidades principais.
+
+```mermaid
+graph LR
+    Cidadao((Usuário))
+    Colab((Colaborador Cientista))
+    
+    subgraph "MegaloData System"
+        direction TB
+        UC1(Consultar Catálogo/Mapa)
+        UC2(Enviar Avistamento)
+        UC3(Login/Cadastrar Colaborador)
+        UC4(Submeter Dados Técnicos)
+        UC5(Validar Evidência Científica)
+    end
+
+    Cidadao --- UC1
+    Cidadao --- UC2
+    Colab --- UC1
+    Colab --- UC2
+    Colab --- UC3
+    UC3 --- UC4
+    UC2 --- UC5
+    UC4 --- UC5
+```
+
+### 2. Diagrama de Sequência: Submissão de Dados
+Este diagrama ilustra a troca de mensagens e a ordem cronológica das interações entre o colaborador, o sistema e o banco de dados durante o cadastro de uma nova espécie.
+
+```mermaid
+sequenceDiagram
+    participant C as Colaborador
+    participant S as Sistema (Frontend)
+    participant B as Banco de Dados (SQL)
+    participant V as Módulo de Validação
+
+    C->>S: Preenche formulário de espécie
+    C->>S: Faz upload de evidência (PDF/IMG)
+    S->>V: Valida integridade dos campos
+    V-->>S: Campos OK
+    S->>B: INSERT INTO especies (dados...)
+    B-->>S: Confirmação de persistência
+    S-->>C: Exibe "Enviado para Revisão"
+```
+
+### 3. Diagrama de Estados: Ciclo de Vida do Registro
+Este diagrama descreve as diferentes etapas e condições pelas quais uma informação passa dentro do sistema, desde o rascunho inicial até a publicação oficial no catálogo.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Rascunho
+    Rascunho --> Analise: Enviar para Revisão
+    Analise --> Aprovado: Evidência Verídica
+    Analise --> Rejeitado: Dados Inconsistentes
+    Rejeitado --> Rascunho: Corrigir Dados
+    Aprovado --> Publicado: Disponível no Catálogo
+    Publicado --> [*]
+```
+
+---
+
+## 🏗️ Estrutura do Sistema
+
+O sistema foi desenhado seguindo uma arquitetura multicamadas, focando na integridade referencial dos dados taxonômicos.
+
+### 📊 Modelagem de Dados (MER)
+A base do projeto reside em um banco de dados relacional (SQL) para garantir que a hierarquia biológica seja respeitada:
+* **Reinos/Ordens/Famílias:** Tabelas com relacionamentos `1:N`.
+* **Espécies:** Entidade central com chaves estrangeiras para tabelas de morfologia.
+* **Habitats:** Relacionamento `N:N` com espécies (uma espécie pode habitar vários oceanos).
+
+### 🛠️ Tech Stack Planejada
+* **Documentação:** Markdown / Mermaid.js (Diagramas).
+* **Banco de Dados:** MySQL ou PostgreSQL.
+* **Gestão de Projeto:** Kanban via GitHub Projects.
+* **Qualidade (QA):** Cypress para testes de API e validação de schema.
+
+---
+
+## 🧪 Estratégia de Qualidade (QA)
+
+Como o MegaloData lida com dados científicos, a precisão é crítica. O plano de testes foca em:
+1.  **Data Integrity Testing:** Scripts SQL para garantir que não existam "espécies órfãs" sem família definida.
+2.  **API Validation:** Garantir que os inputs de dados (JSON) sigam estritamente o modelo de dados definido.
+3.  **Boundary Testing:** Validar se os limites de habitat (profundidade, temperatura) aceitam apenas valores realistas.
 
 ---
 
