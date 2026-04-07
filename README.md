@@ -21,16 +21,46 @@ Ao estruturar chaves de busca baseadas em **Morfologia** (dentes, nadadeiras, fe
 
 ---
 
-## 📋 Requisitos do Projeto
+## 📋 Especificação de Requisitos
 
-### Funcionais (RF)
-- [ ] **RF01:** O sistema deve permitir a busca de espécies por filtros morfológicos (ex: número de fendas branquiais).
-- [ ] **RF02:** O sistema deve validar a unicidade do Nome Científico.
-- [ ] **RF03:** O sistema deve permitir o upload de coordenadas geográficas de avistamento.
+Abaixo estão listados os requisitos que norteiam a estrutura e o comportamento do sistema MegaloData.
 
-### Não-Funcionais (RNF)
-- [ ] **RNF01:** A integridade referencial deve ser mantida via Foreign Keys (FK).
-- [ ] **RNF02:** O sistema deve responder a consultas complexas de cruzamento de dados em menos de 200ms.
+### 1. Requisitos Funcionais (RF)
+*O que o sistema deve fazer.*
+
+| ID | Descrição | Ator |
+|:---:|:---|:---:|
+| **RF01** | O sistema deve permitir a consulta de espécies por filtros morfológicos (guelras, dentes, etc). | Todos |
+| **RF02** | O sistema deve exibir um mapa interativo com a distribuição geográfica das espécies. | Todos |
+| **RF03** | O sistema deve permitir que cidadãos enviem fotos e localizações de avistamentos. | Cidadão |
+| **RF04** | O sistema deve exigir autenticação (e-mail/senha/credencial) para acesso ao Portal do Colaborador. | Colaborador |
+| **RF05** | O sistema deve permitir que colaboradores cadastrem e editem dados técnicos de espécies. | Colaborador |
+| **RF06** | O sistema deve obrigar o upload de evidência científica (PDF/IMG) em submissões técnicas. | Colaborador |
+| **RF07** | O sistema deve permitir a exportação de fichas técnicas em formato PDF. | Todos |
+| **RF08** | O sistema deve validar a unicidade do Nome Científico no banco de dados. | Sistema |
+
+---
+
+### 2. Requisitos Não Funcionais (RNF)
+*Como o sistema deve operar (qualidade, performance, segurança).*
+
+| ID | Categoria | Descrição |
+|:---:|:---|:---|
+| **RNF01** | **Integridade** | O banco de dados deve utilizar Foreign Keys (FK) para garantir a integridade referencial 3NF. |
+| **RNF02** | **Performance** | Consultas complexas de cruzamento de dados (Taxonomia x Habitat) devem responder em < 200ms. |
+| **RNF03** | **Segurança** | As senhas dos colaboradores devem ser armazenadas utilizando criptografia (hash). |
+| **RNF04** | **Usabilidade** | A interface deve seguir o padrão de design técnico (Blueprint) e ser totalmente em português. |
+| **RNF05** | **Disponibilidade**| O sistema deve ser acessível via navegador (Web) sem necessidade de instalação local. |
+| **RNF06** | **Confiabilidade**| Toda submissão de dados deve passar por um módulo de validação de campos obrigatórios antes da persistência. |
+
+---
+
+### 3. Regras de Negócio (RN)
+*Premissas que restringem as funcionalidades.*
+
+- **RN01:** Um avistamento enviado por um cidadão só aparece no mapa global após revisão de um colaborador.
+- **RN02:** Apenas usuários com "Código de Credencial" válido podem se cadastrar como Colaboradores.
+- **RN03:** Não é permitido excluir uma "Família" do banco de dados se houver "Espécies" vinculadas a ela (Integridade Referencial).
 
 ---
 
@@ -101,7 +131,7 @@ Este diagrama define as interações entre os diferentes atores (Cidadão, Colab
 
 ```mermaid
 graph LR
-    Cidadao((Usuário))
+    Cidadao((Cidadão Cientista))
     Colab((Colaborador Cientista))
     
     subgraph "MegaloData System"
@@ -116,11 +146,10 @@ graph LR
     Cidadao --- UC1
     Cidadao --- UC2
     Colab --- UC1
-    Colab --- UC2
     Colab --- UC3
-    UC3 --- UC4
-    UC2 --- UC5
-    UC4 --- UC5
+    Colab --- UC4
+    UC2 -. include .-> UC5
+    UC4 -. include .-> UC5
 ```
 
 ### 2. Diagrama de Sequência: Submissão de Dados
@@ -130,8 +159,8 @@ Este diagrama ilustra a troca de mensagens e a ordem cronológica das interaçõ
 sequenceDiagram
     participant C as Colaborador
     participant S as Sistema (Frontend)
-    participant B as Banco de Dados (SQL)
     participant V as Módulo de Validação
+    participant B as Banco de Dados (SQL)
 
     C->>S: Preenche formulário de espécie
     C->>S: Faz upload de evidência (PDF/IMG)
@@ -182,6 +211,14 @@ Como o MegaloData lida com dados científicos, a precisão é crítica. O plano 
 1.  **Data Integrity Testing:** Scripts SQL para garantir que não existam "espécies órfãs" sem família definida.
 2.  **API Validation:** Garantir que os inputs de dados (JSON) sigam estritamente o modelo de dados definido.
 3.  **Boundary Testing:** Validar se os limites de habitat (profundidade, temperatura) aceitam apenas valores realistas.
+
+---
+
+## 🚀 Planejamento (Kanban)
+
+O desenvolvimento do MegaloData é gerenciado via GitHub Projects, focando na rastreabilidade dos requisitos funcionais e na qualidade de software.
+
+![Kanban Board](./assets/kanban-print.jpg)
 
 ---
 
