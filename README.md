@@ -30,14 +30,14 @@ Abaixo estão listados os requisitos que norteiam a estrutura e o comportamento 
 
 | ID | Descrição | Ator |
 |:---:|:---|:---:|
-| **RF01** | O sistema deve permitir a consulta de espécies por filtros morfológicos (guelras, dentes, etc). | Todos |
-| **RF02** | O sistema deve exibir um mapa interativo com a distribuição geográfica das espécies. | Todos |
-| **RF03** | O sistema deve permitir que cidadãos enviem fotos e localizações de avistamentos. | Cidadão |
-| **RF04** | O sistema deve exigir autenticação (e-mail/senha/credencial) para acesso ao Portal do Colaborador. | Colaborador |
-| **RF05** | O sistema deve permitir que colaboradores cadastrem e editem dados técnicos de espécies. | Colaborador |
-| **RF06** | O sistema deve obrigar o upload de evidência científica (PDF/IMG) em submissões técnicas. | Colaborador |
-| **RF07** | O sistema deve permitir a exportação de fichas técnicas em formato PDF. | Todos |
-| **RF08** | O sistema deve validar a unicidade do Nome Científico no banco de dados. | Sistema |
+| **[RF01](https://github.com/Stelariz/MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios/issues/2)** | O sistema deve permitir a consulta de espécies por filtros morfológicos (guelras, dentes, etc). | Todos |
+| **[RF02](https://github.com/Stelariz/MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios/issues/3)** | O sistema deve exibir um mapa interativo com a distribuição geográfica das espécies. | Todos |
+| **[RF03](https://github.com/Stelariz/MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios/issues/4)** | O sistema deve permitir que cidadãos enviem fotos e localizações de avistamentos. | Cidadão |
+| **[RF04](https://github.com/Stelariz/MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios/issues/5)** | O sistema deve exigir autenticação (e-mail/senha/credencial) para acesso ao Portal do Colaborador. | Colaborador |
+| **[RF05](https://github.com/Stelariz/MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios/issues/6)** | O sistema deve permitir que colaboradores cadastrem e editem dados técnicos de espécies. | Colaborador |
+| **[RF06](https://github.com/Stelariz/MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios/issues/7)** | O sistema deve obrigar o upload de evidência científica (PDF/IMG) em submissões técnicas. | Colaborador |
+| **[RF07](https://github.com/Stelariz/MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios/issues/8)** | O sistema deve permitir a exportação de fichas técnicas em formato PDF. | Todos |
+| **[RF08](https://github.com/Stelariz/MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios/issues/9)** | O sistema deve validar a unicidade do Nome Científico no banco de dados. | Sistema |
 
 ---
 
@@ -46,12 +46,12 @@ Abaixo estão listados os requisitos que norteiam a estrutura e o comportamento 
 
 | ID | Categoria | Descrição |
 |:---:|:---|:---|
-| **RNF01** | **Integridade** | O banco de dados deve utilizar Foreign Keys (FK) para garantir a integridade referencial 3NF. |
-| **RNF02** | **Performance** | Consultas complexas de cruzamento de dados (Taxonomia x Habitat) devem responder em < 200ms. |
-| **RNF03** | **Segurança** | As senhas dos colaboradores devem ser armazenadas utilizando criptografia (hash). |
-| **RNF04** | **Usabilidade** | A interface deve seguir o padrão de design técnico (Blueprint) e ser totalmente em português. |
-| **RNF05** | **Disponibilidade**| O sistema deve ser acessível via navegador (Web) sem necessidade de instalação local. |
-| **RNF06** | **Confiabilidade**| Toda submissão de dados deve passar por um módulo de validação de campos obrigatórios antes da persistência. |
+| **[RNF01](https://github.com/Stelariz/MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios/issues/10)** | **Integridade** | O banco de dados deve utilizar Foreign Keys (FK) para garantir a integridade referencial 3NF. |
+| **[RNF02](https://github.com/Stelariz/MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios/issues/11)** | **Performance** | Consultas complexas de cruzamento de dados (Taxonomia x Habitat) devem responder em < 200ms. |
+| **[RNF03](https://github.com/Stelariz/MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios/issues/12)** | **Segurança** | As senhas dos colaboradores devem ser armazenadas utilizando criptografia (hash). |
+| **[RNF04](https://github.com/Stelariz/MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios/issues/13)** | **Usabilidade** | A interface deve seguir o padrão de design técnico (Blueprint) e ser totalmente em português. |
+| **[RNF05](https://github.com/Stelariz/MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios/issues/14)** | **Disponibilidade**| O sistema deve ser acessível via navegador (Web) sem necessidade de instalação local. |
+| **[RNF06](https://github.com/Stelariz/MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios/issues/15)** | **Confiabilidade**| Toda submissão de dados deve passar por um módulo de validação de campos obrigatórios antes da persistência. |
 
 ---
 
