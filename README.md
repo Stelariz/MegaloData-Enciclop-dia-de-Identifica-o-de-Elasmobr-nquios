@@ -58,9 +58,9 @@ Abaixo estão listados os requisitos que norteiam a estrutura e o comportamento 
 ### 3. Regras de Negócio (RN)
 *Premissas que restringem as funcionalidades.*
 
-- **RN01:** Um avistamento enviado por um cidadão só aparece no mapa global após revisão de um colaborador.
-- **RN02:** Apenas usuários com "Código de Credencial" válido podem se cadastrar como Colaboradores.
-- **RN03:** Não é permitido excluir uma "Família" do banco de dados se houver "Espécies" vinculadas a ela (Integridade Referencial).
+- **[RN01](https://github.com/Stelariz/MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios/issues/16):** Um avistamento enviado por um cidadão só aparece no mapa global após revisão de um colaborador.
+- **[RN02](https://github.com/Stelariz/MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios/issues/17):** Apenas usuários com "Código de Credencial" válido podem se cadastrar como Colaboradores.
+- **[RN03](https://github.com/Stelariz/MegaloData-Enciclop-dia-de-Identifica-o-de-Elasmobr-nquios/issues/18):** Não é permitido excluir uma "Família" do banco de dados se houver "Espécies" vinculadas a ela (Integridade Referencial).
 
 ---
 
@@ -218,7 +218,7 @@ Como o MegaloData lida com dados científicos, a precisão é crítica. O plano 
 
 O desenvolvimento do MegaloData é gerenciado via GitHub Projects, focando na rastreabilidade dos requisitos funcionais e na qualidade de software.
 
-![Kanban Board](./assets/kanban-print.jpg)
+![Kanban Board](https://github.com/users/Stelariz/projects/3/)
 
 ---
 
