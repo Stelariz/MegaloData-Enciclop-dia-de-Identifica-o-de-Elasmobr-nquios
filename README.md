@@ -1,4 +1,4 @@
-<h1 align="center"># 🦈 MegaloData: Enciclopédia de Identificação de Elasmobrânquios</h1>
+# 🦈 MegaloData: Enciclopédia de Identificação de Elasmobrânquios
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Educacional-9333ea" alt="Status">
