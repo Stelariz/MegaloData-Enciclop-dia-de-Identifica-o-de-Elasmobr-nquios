@@ -1,10 +1,12 @@
 # 🦈 MegaloData: Enciclopédia de Identificação de Elasmobrânquios
 
 <p align="center">
+  
   <img src="https://img.shields.io/badge/Status-Educacional-9333ea" alt="Status">
   <img src="https://img.shields.io/badge/Contexto-Estrutura_de_Software-0284c7" alt="Contexto">
   <img src="https://img.shields.io/badge/Database-SQL-007ec6?logo=microsoft-sql-server&logoColor=white" alt="Database">
   <img src="https://img.shields.io/badge/QA-Rastreabilidade_Total-16a34a" alt="QA">
+  
 </p>
 
 O **MegaloData** é um projeto de sistema de catálogo e identificação biológica especializado em tubarões e raias. O objetivo principal é fornecer uma estrutura de dados robusta para que pesquisadores possam identificar espécies através de características morfológicas, genéticas e de habitat.
